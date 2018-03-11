@@ -5,7 +5,7 @@ import requests
 import json
 from bs4 import BeautifulSoup
 import re
-import KatyPerry
+import LyricCloud
 
 #获取html文件
 def getJsonObjWithArtistId(artist_id):
@@ -49,9 +49,9 @@ def getDataWithSongId(song_id):
     j = json.loads(json_obj)
     text = (j['lrc']['lyric'])
 
-    with open('Roar.txt', 'a') as f:
+    with open('Lyric.txt', 'a') as f:
         f.write(text)
 
 getJsonObjWithArtistId(62888)
 #6452 62888
-KatyPerry.creatWordCloud()
+LyricCloud.creatWordCloud()

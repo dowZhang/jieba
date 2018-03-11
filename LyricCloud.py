@@ -11,7 +11,7 @@ import jieba
 d = path.dirname(__file__)
 
 def getKeyWords():
-    text = open(path.join(d, 'Roar.txt')).read()
+    text = open(path.join(d, 'Lyric.txt')).read()
     return text
 
 def getChineseWords():
@@ -20,10 +20,10 @@ def getChineseWords():
 def creatWordCloud():
     katy_color = np.array(Image.open(path.join(d, "backgroundGirl.png")))
 
-    stopwords = set(STOPWORDS)
-    stopwords.add(" ")
+    stop_words = set(STOPWORDS)
+    stop_words.add(" ")
 
-    wc = WordCloud(background_color="white", max_words=200, mask=katy_color, stopwords=stopwords, max_font_size=120,
+    wc = WordCloud(background_color="white", max_words=200, mask=katy_color, stopwords=stop_words, max_font_size=120,
                    random_state=42)
     wc.generate(getKeyWords())
 
