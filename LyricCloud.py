@@ -11,7 +11,7 @@ import jieba
 d = path.dirname(__file__)
 
 def getKeyWords():
-    text = open(path.join(d, 'Lyric.txt')).read()
+    text = open(path.join(d, 'lyric.txt')).read()
     return text
 
 def getChineseWords():
