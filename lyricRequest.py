@@ -22,7 +22,7 @@ def getJsonObjWithArtistId(artist_id):
         'Upgrade-Insecure-Requests': '1',
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:58.0) Gecko/20100101 Firefox/58.0'
     }
-    url = 'http://music.163.com/artist?id=' + str(artist_id)
+    url = 'http://music.163.com/playlist?id=' + str(artist_id)
     r = requests.get(url, headers=headers)
     wrapJsonObj(r.text)
 
@@ -42,16 +42,18 @@ def wrapJsonObj(html):
 
 #获取歌词
 def getDataWithSongId(song_id):
-
+    print(song_id)
     url = 'http://music.163.com/api/song/lyric?'+ 'id=' + song_id + '&lv=1&kv=1&tv=-1'
     r = requests.get(url=url)
     json_obj = r.text
     j = json.loads(json_obj)
+    if 'lrc' not in j:
+        return
     text = (j['lrc']['lyric'])
 
     with open('lyric.txt', 'a') as f:
         f.write(text)
 
-getJsonObjWithArtistId(62888)
+getJsonObjWithArtistId(544474612)
 #6452 62888
 lyricCloud.creatWordCloud()
