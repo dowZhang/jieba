@@ -33,5 +33,3 @@ def creatWordCloud():
     plt.imshow(wc.recolor(color_func=image_colors), interpolation="bilinear")
     plt.axis("off")
     plt.show()
-
-creatWordCloud()
